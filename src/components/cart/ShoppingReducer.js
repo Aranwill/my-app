@@ -17,7 +17,6 @@ export function shoppingReducer(state, action) {
             }
         }
 
-
         case TYPES.ADD_TO_CART: {
             let newItem = state.products.find(product => product.id === action.payload)
 
@@ -39,7 +38,7 @@ export function shoppingReducer(state, action) {
             }
 
         }
-        
+
         case TYPES.REMOVE_ONE_PRODUCT: {
             let itemToDelete = state.cart.find(item => item.id === action.payload)
 
@@ -57,17 +56,17 @@ export function shoppingReducer(state, action) {
                 cart: state.cart.filter(item => item.id !== action.payload)
             }
         }
+
         case TYPES.REMOVE_ALL_PRODUCTS: {
             return {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload)
             }
         }
+        
         case TYPES.CLEAR_CART: {
             return ShoppingInitialState;
         }
-            
-
         default:
             return state
     }
